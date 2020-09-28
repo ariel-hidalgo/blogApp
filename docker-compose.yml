@@ -29,5 +29,8 @@ services:
           - "POSTGRES_PASSWORD=thisisasecretpassword"
         ports:
           - "54321:5432"
+#testing
+  selenium:
+    image: selenium/standalone-chrome
 volumes: 
     dbdata: {}
