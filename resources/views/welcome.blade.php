@@ -21,6 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
+    <h1>Hola Mundo</h1>
     <p>SI ESTAS VIENDO ESTO ENTONCES EDITASTE LA HOME PAGE DE LARAVEL CORRECTAMENTE Y YA PODES CERRAR EL ISSUE #2</p>
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))

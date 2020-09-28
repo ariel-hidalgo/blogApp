@@ -11,8 +11,9 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testABSNegativeNumber()
     {
-        $this->assertTrue(true);
+        $result = abs(-4.2);
+        $this->assertEquals($result,4.2);
     }
 }
