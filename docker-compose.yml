@@ -25,7 +25,7 @@ services:
           - dbdata:/var/lib/pgsql
         environment:
           - "POSTGRES_DB=mydb"
-          - "POSTGRES_USER=mydb"
+          - "POSTGRES_USER=myuser"
           - "POSTGRES_PASSWORD=thisisasecretpassword"
         ports:
           - "54321:5432"
