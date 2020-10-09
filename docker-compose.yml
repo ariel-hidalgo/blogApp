@@ -8,8 +8,7 @@ services:
         volumes:
           - ./:/var/www
         environment:
-          - "DB_PORT=5432"
-          - "DB_HOST=database"
+          - "DB_CONNECTION=sqlite"
     web:
         build:
             context: ./
@@ -20,15 +19,13 @@ services:
         ports:
           - 8080:80
     database:
-        image: postgres:9.6
+        image: sqlite
         volumes:
-          - dbdata:/var/lib/pgsql
+          - dbdata:/var/lib/sqlite
         environment:
-          - "POSTGRES_DB=mydb"
-          - "POSTGRES_USER=myuser"
-          - "POSTGRES_PASSWORD=thisisasecretpassword"
+          - "DB_CONNECTION=sqlite"
         ports:
-          - "54321:5432"
+          - "3306:3306"
 #testing
     selenium:
         image: selenium/standalone-chrome
