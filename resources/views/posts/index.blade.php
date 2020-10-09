@@ -65,7 +65,7 @@
               A traer desde la otra tabla
               </td>
               <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                <a href="#" class="">Editar</a>
+                <a href="{{ route('posts.edit' , $post->id)}}">Editar</a>
               </td>
               <form action="{{ route('posts.destroy', $post)}}" method="post">
               {{ method_field('DELETE') }}
