@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('date');
             $table->timestamps();
-            $table->foreignId('category_id')->nullable();
+            $table->string('category');
         });
     }
 
