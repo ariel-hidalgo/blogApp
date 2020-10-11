@@ -18,7 +18,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/admin', function () {
     return view('welcome');
-});
+}); 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
