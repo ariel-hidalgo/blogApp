@@ -9,7 +9,7 @@ use Tests\DuskTestCase;
 class HomeTest extends DuskTestCase
 {
     /**
-     * A Dusk test example.
+     * Verifica Si La Página Inicial Del Proyecto Es Visible
      *
      * @return void
      */

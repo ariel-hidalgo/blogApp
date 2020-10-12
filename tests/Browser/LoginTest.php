@@ -10,14 +10,14 @@ use Tests\DuskTestCase;
 class LoginTest extends DuskTestCase
 {
     /**
-     * A Dusk test example.
+     * Verifica Si Un Usuario Puede Logearse
      *
      * @return void
      */
     public function testLogin()
     {
         $user = User::factory()->create([
-            'email' =>'testing@laravel.com',
+            'email' =>'test99@test.com',
             'password' => bcrypt('123456789')
         ]);
 
