@@ -13,4 +13,8 @@ class HomeController extends Controller
             'posts' => $posts
         ]);
     }
+
+    public function music(){
+        return view('blogs.music');
+    }
 }

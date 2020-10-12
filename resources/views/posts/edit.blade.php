@@ -1,28 +1,58 @@
 <x-posts>
-<h1>Editar Post</h1>
-<form method="POST" action="{{ route('posts.update' , $post->id )}}">
-    @csrf
-        @method('PUT')
-<button type="submit" class="btn btn-dark">Editar</button>
-  <div class="form-group">
-    <label for="title">Titulo</label>
-    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ?? $post->title }}">
+<h1 class="text-center mb-4 text-2xl font-semibold">Editar Post</h1>
+
+<form method="POST" action="{{ route('posts.update' , $post->id )}}" class="w-full max-w-lg text-center ml-auto mr-auto border-black border-2 p-4 rounded">
+  @csrf
+  @method('PUT')
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
+        Título
+      </label>
+      <input class="appearance-none block w-full bg-gray-400 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="title" name="title" value="{{ old('title') ?? $post->title }}" type="text">
+      @error('title')
+      <p class="text-red-700 text-xs font-bold">Este campo es obligatorio!</p>
+      @enderror
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="date">
+        Fecha
+      </label>
+      <input class="appearance-none block w-full bg-gray-400 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="date" name="date" value="{{ old('date') ?? $post->date }}" type="text">
+      @error('date')
+      <p class="text-red-700 text-xs font-bold mt-3">Este campo es obligatorio!</p>
+      @enderror
+    </div>
   </div>
-  <div class="form-group">
-    <label for="description">Descripción</label>
-    <textarea class="form-control" id="description" name="description" rows="4">{{ old('description') ?? $post->description }}</textarea>
+  <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="relative w-full appearance-none label-floating">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="description">
+          Descripción
+          </label>
+              <textarea class="autoexpand tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-400 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="description" name="description" type="text">{{ old('description') ?? $post->description }}</textarea>
+                  @error('description')
+                  <p class="text-red-700 text-xs font-bold">Este campo es obligatorio!</p>
+                  @enderror
+          </div>
   </div>
-  <div class="form-group">
-    <label for="date">Fecha</label>
-    <input type="text" class="form-control" id="date" name="date" value="{{ old('date') ?? $post->date }}">
-  </div>
-  <div class="form-group">
-    <label for="category">Categoría</label>
-    <select class="form-control" id="category" name="category" value="{{ old('category') ?? $post->category }}">
-      <option>Musica</option>
-      <option>Peliculas</option>
-      <option>Series</option>
-      <option>Anime</option>
+    <div class="w-auto md:w-1/3 px-3 mb-6 md:mb-0 mr-auto ml-auto">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category">
+        Categoría
+      </label>
+      <div class="relative">
+        <select class="block appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category" name="category" value="{{ old('category') ?? $post->category }}">
+          <option>Musica</option>
+          <option>Peliculas</option>
+          <option>Series</option>
+          <option>Anime</option>
+        </select>
+        <button type="submit" class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4">
+  Editar Post
+  </button>
+      </div>
+    </div>
   </div>
 </form>
+
 </x-posts>

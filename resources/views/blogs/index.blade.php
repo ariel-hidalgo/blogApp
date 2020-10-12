@@ -1,55 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Blogz - Inicio</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ route('blogs.index') }}">Blogz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('blogs.index') }}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Musica</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Películas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Series</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Anime</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
-        </li>
-        </ul>
-    </div>
-    </nav>
-
-@foreach ($posts as $post)
-    <div class="card text-center">
-        <div class="card-header">
-        {{ $post->category }}
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">{{ $post->title }}</h5>
-            <p class="card-text">{{ $post->description }}</p>
-            <a href="#" class="btn btn-primary">Ver Artículo</a>
-        </div>
-        <div class="card-footer text-muted">
-            {{ $post->date }}
+<x-blogs>
+<h1 class="text-4xl font-bold text-white text-center mt-8">BLOGZ</h1>
+<p class="text-center font-semibold text-white text-xl mb-16">Bienvenido a blogz! Desliza para ver nuestros últimos posts o busca por los temas que más te interesen</p>
+@foreach($posts as $post)
+<div class="ml-auto mr-auto bg-gray-700 h-screen flex items-center justify-center px-32 -mt-32">
+  <div class="flex flex-col w-full bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5">
+    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
+        <div class="flex flex-col w-full md:flex-row">
+            <div class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4">
+                <div class="md:text-3xl">{{ $post->date }}</div>
+            </div>
+            <div class="p-4 font-normal text-gray-800 md:w-3/4">
+                <h1 class="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-800">{{ $post->title }}</h1>
+                <p class="leading-normal">{{ Str::limit($post->description , 125, '...') }}</p>
+                <div class="flex flex-row items-center mt-4 text-gray-700">
+                    <div class="w-auto bg-green-800 rounded text-white font-bold p-1">
+                    {{ $post->category }}
+                    </div>
+                    <div class="w-1/2 flex justify-end ml-64">
+                    <button class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        Ver Artículo Completo
+                    </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 @endforeach
-</body>
-</html>
+</x-blogs>
