@@ -18,14 +18,6 @@ services:
           - ./:/var/www
         ports:
           - 8080:80
-    database:
-        image: sqlite
-        volumes:
-          - dbdata:/var/lib/sqlite
-        environment:
-          - "DB_CONNECTION=sqlite"
-        ports:
-          - "3306:3306"
 #testing
     selenium:
         image: selenium/standalone-chrome
