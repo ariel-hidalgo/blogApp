@@ -27,6 +27,5 @@ jobs:
       run: php artisan serve &
     - name: Run Dusk Tests
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/databaseTest.sqlite
+        APP_URL: "http://127.0.0.1:8000"
       run: php artisan dusk
