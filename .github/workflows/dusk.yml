@@ -1,4 +1,4 @@
-name: Laravel
+name: Dusk Tests
 on:
  push:
    branches: [ master ]
