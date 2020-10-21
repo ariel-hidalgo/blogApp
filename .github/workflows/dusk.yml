@@ -35,5 +35,6 @@ jobs:
      env:
        DB_CONNECTION: sqlite
        DB_DATABASE: database/database.sqlite
-       APP_URL: "http://127.0.0.1:8000"
+       APP_URL: http://127.0.0.1:8000
+       SELENIUM_URL: http://localhost:9515
      run: php artisan dusk
