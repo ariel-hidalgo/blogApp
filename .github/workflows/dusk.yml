@@ -19,21 +19,18 @@ jobs:
      run: chmod -R 777 storage bootstrap/cache
    - name: Change permissions to dusk
      run: chmod -R 0755 vendor/laravel/dusk/bin/ 
+   - name: Create Database
+     run: |
+       mkdir -p database
+       touch database/database.sqlite
    - name: Run Migrations
      run: php artisan migrate 
-     env:
-      DB_CONNECTION: sqlite
-      DB_DATABASE: database/database.sqlite
    - name: Upgrade Chrome Driver
      run: php artisan dusk:chrome-driver `/opt/google/chrome/chrome --version | cut -d " " -f3 | cut -d "." -f1`
    - name: Run Laravel Server
      run: php artisan serve > /dev/null 2>&1 &
    - name: Start Chrome Driver
      run: ./vendor/laravel/dusk/bin/chromedriver-linux &
-   - name: Create Database
-     run: |
-       mkdir -p database
-       touch database/database.sqlite
    - name: Execute tests (Unit and Feature tests) via PHPUnit
      env:
        DB_CONNECTION: sqlite
