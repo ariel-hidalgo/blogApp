@@ -31,8 +31,9 @@ jobs:
      run: php artisan serve > /dev/null 2>&1 &
    - name: Start Chrome Driver
      run: ./vendor/laravel/dusk/bin/chromedriver-linux &
-   - name: Execute tests (Unit and Feature tests) via PHPUnit
+   - name: Run Dusk Test
      env:
        DB_CONNECTION: sqlite
        DB_DATABASE: database/database.sqlite
+       APP_URL: "http://127.0.0.1:8000"
      run: php artisan dusk
