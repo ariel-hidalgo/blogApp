@@ -27,6 +27,8 @@ jobs:
        touch database/database.sqlite
    - name: Run Migrations
      run: php artisan migrate 
+   - name: Run Laravel Server
+     run: php artisan serve &
    - name: Execute tests (Unit and Feature tests) via PHPUnit
      env:
        DB_CONNECTION: sqlite
