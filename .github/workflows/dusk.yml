@@ -9,7 +9,7 @@ jobs:
    runs-on: ubuntu-latest
    env:
       DB_CONNECTION: sqlite
-      APP_URL: http://127.0.0.1:8000
+      APP_URL: localhost
    steps:
    - uses: actions/checkout@v2
    - name: Copy .env
