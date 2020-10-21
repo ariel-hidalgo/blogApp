@@ -7,9 +7,6 @@ on:
 jobs:
  dusk-tests:
    runs-on: ubuntu-latest
-   env:
-      DB_CONNECTION: sqlite
-      APP_URL: localhost
    steps:
    - uses: actions/checkout@v2
    - name: Copy .env
@@ -22,13 +19,12 @@ jobs:
      run: chmod -R 777 storage bootstrap/cache
    - name: Run Migrations
      run: php artisan migrate
-   - name: Upgrade Chrome Driver
-     run: php artisan dusk:chrome-driver `/opt/google/chrome/chrome --version | cut -d " " -f3 | cut -d "." -f1`
    - name: Change permissions to dusk
      run: chmod -R 0755 vendor/laravel/dusk/bin/ 
    - name: Run Laravel Server
-     run: php artisan serve > /dev/null 2>&1 &
-   - name: Start Chrome Driver
-     run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &   
+     run: php artisan serve > /dev/null 2>&1 & 
    - name: Execute dusk tests
-     run: php artisan dusk
+    env:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: database/databaseTest.sqlite
+    run: php artisan dusk
