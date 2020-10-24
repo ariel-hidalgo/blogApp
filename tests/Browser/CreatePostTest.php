@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -15,10 +16,14 @@ class CreatePostTest extends DuskTestCase
      */
     public function testCreatePost()
     {
-        $this->browse(function (Browser $browser) {
+        $user = User::factory()->create([
+            'email' =>'test121@test.com',
+            'password' => bcrypt('123456789')
+        ]);
+        $this->browse(function (Browser $browser) use($user) {
             $browser->visit('/login')
-                    ->type('email' , 'arielhidalgo808@gmail.com')
-                    ->type('password' , '12345678')
+                    ->type('email' , $user->email)
+                    ->type('password' , '123456789')
                     ->press('LOGIN')
                     ->visit('/posts')
                     ->press('Crear Nuevo Post')
