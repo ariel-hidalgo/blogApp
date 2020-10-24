@@ -1,7 +1,7 @@
 name: Dusk Tests
 on:
  push:
-   branches: [ master ]
+   branches: [ dusk_(github_actions) ]
  pull_request:
    branches: [ master ]
 jobs:
