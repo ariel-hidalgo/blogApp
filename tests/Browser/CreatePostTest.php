@@ -23,7 +23,7 @@ class CreatePostTest extends DuskTestCase
         $this->browse(function (Browser $browser) use($user) {
             $browser->visit('/login')
                     ->type('email' , $user->email)
-                    ->type('password' , '12345678')
+                    ->type('password' , '123456789')
                     ->press('LOGIN')
                     ->visit('/posts')
                     ->press('Crear Nuevo Post')
