@@ -47,7 +47,7 @@ class PostController extends Controller
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
-            'category' => 'required'
+            'category_id' => 'required'
         ]);
         $input = $request->all();
         Post::create($input);

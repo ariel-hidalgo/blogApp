@@ -19,7 +19,7 @@
                     <td class="p-3 text-center flex justify-end">
                     <a href="{{ route('categories.edit' , $category->id)}}"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Editar</button></a>
 
-                    <form action="{{ route('categories.destroy', $category)}}" method="category">
+                    <form action="{{ route('categories.destroy', $category)}}" method="post">
                     {{ method_field('DELETE') }}
                     @csrf
                     <button type="submit" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 rounded focus:outline-none focus:shadow-outline px-2">Eliminar</button>
