@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -38,7 +38,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Category::create($input);
+        return redirect('categories');
     }
 
     /**
@@ -60,7 +62,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit' , [
+            'category' => $category
+        ]);
+        
     }
 
     /**
@@ -72,7 +77,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $input = $request->all();
+        $category->update($input);
+        return redirect('categories');
     }
 
     /**
