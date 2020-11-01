@@ -19,7 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('date');
             $table->timestamps();
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')
+                  ->references('id')->on('categories')
+                  ->onDelete('cascade');
         });
     }
 
