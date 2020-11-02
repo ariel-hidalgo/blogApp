@@ -29,9 +29,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('posts' , PostController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::resource('categories' , CategoryController::class);
+    Route::resource('posts' , PostController::class);
+});
+
 Route::resource('blogs' , BlogController::class);
-Route::resource('categories' , CategoryController::class);
 
 Route::get('/music' , function (){
     return view('blogs.music');
