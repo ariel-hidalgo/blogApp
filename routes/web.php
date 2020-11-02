@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,17 @@ Route::get('/admin', function () {
     return view('welcome');
 }); 
 
+Route::get('/' , function(){
+    return redirect('blogs');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 Route::resource('posts' , PostController::class);
 Route::resource('blogs' , BlogController::class);
-Route::resource('/' , HomeController::class);
+Route::resource('categories' , CategoryController::class);
 
 Route::get('/music' , function (){
     return view('blogs.music');

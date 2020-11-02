@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index' , [
-            'posts' => $posts
+        $categories = Category::all();
+        return view('categories.index' , [
+            'categories' => $categories
         ]);
     }
 
@@ -29,10 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('posts.create' , [
-            'categories' => $categories
-        ]);
+        return view('categories.create');
     }
 
     /**
@@ -43,24 +38,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'date' => 'required',
-            'category_id' => 'required'
-        ]);
         $input = $request->all();
-        Post::create($input);
-        return redirect('posts');
+        Category::create($input);
+        return redirect('categories');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Category $category)
     {
         //
     }
@@ -68,43 +57,41 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Category $category)
     {
-        $categories = Category::all();
-        return view('posts.edit', [
-            'post' => $post,
-            'categories' => $categories
+        return view('categories.edit' , [
+            'category' => $category
         ]);
+        
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Category $category)
     {
         $input = $request->all();
-        $post->update($input);
-        return redirect('posts');
+        $category->update($input);
+        return redirect('categories');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Category $category)
     {
-        $post->delete();
-        return redirect('posts');
+        $category->delete();
+        return redirect('categories');
     }
 
-    
 }

@@ -19,7 +19,7 @@
                     <td class="p-3 text-center px-5">{{ Str::limit($post->title , 30) }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit($post->description , 30) }}</td>
                     <td class="p-3 text-center px-5">{{ $post->date }}</td>
-                    <td class="p-3 text-center px-5">{{ $post->category }}</td>
+                    <td class="p-3 text-center px-5">{{ $post->category->name_category }}</td>
                     <td class="p-3 text-center px-5 flex justify-end">
                     <a href="{{ route('posts.edit' , $post->id)}}"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Editar</button></a>
 

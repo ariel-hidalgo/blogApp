@@ -14,7 +14,7 @@
                 <p class="leading-normal">{{ Str::limit($post->description , 125, '...') }}</p>
                 <div class="flex flex-row items-center mt-4 text-gray-700">
                     <div class="w-auto bg-green-800 rounded text-white font-bold p-1">
-                    {{ $post->category }}
+                    {{ $post->category->name_category }}
                     </div>
                     <div class="w-1/2 flex justify-end ml-64">
                     <button class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">

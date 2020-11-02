@@ -36,15 +36,14 @@
           </div>
   </div>
     <div class="w-auto md:w-1/3 px-3 mb-6 md:mb-0 mr-auto ml-auto">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category_id">
         Categoría
       </label>
       <div class="relative">
-        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category" name="category" value="{{ old('category') }}">
-          <option>Musica</option>
-          <option>Peliculas</option>
-          <option>Series</option>
-          <option>Anime</option>
+        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category_id" name="category_id" value="{{ old('category_id') }}">
+          @foreach($categories as $category)
+          <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+          @endforeach
         </select>
         <button class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4">
   Crear Post
