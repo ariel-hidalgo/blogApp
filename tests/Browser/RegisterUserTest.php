@@ -16,7 +16,7 @@ class RegisterUserTest extends DuskTestCase
      */
     public function testCreatePost()
     {
-        $this->browse(function (Browser $browser) use($user) {
+        $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                     ->type('name' , 'Ariel Hidalgo')
                     ->type('email' , 'ariel@ariel.com')
