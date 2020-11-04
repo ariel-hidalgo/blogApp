@@ -19,6 +19,6 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(true);
+        $response->assertStatus(302);
     }
 }
