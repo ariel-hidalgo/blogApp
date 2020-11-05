@@ -15,15 +15,6 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        $anime = Category::where('name_category' , 'Películas')->first();
-
-        $post = Post::create([
-            'title' => 'test2',
-            'description' => 'test2desc',
-            'date' => 'test2date',
-
-        ]);
-
-        $post->category()->associate($anime)->save();
+       Post::factory()->create();
     }
 }

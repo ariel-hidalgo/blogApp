@@ -15,14 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create([
-            'name_category' => 'Películas',
-            'color_category' => '#ff0800'
-        ]);
-
-        Category::create([
-            'name_category' => 'Música',
-            'color_category' => '#ff0800'
-        ]);
+        //Category::factory()->create();
     }
 }

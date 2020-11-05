@@ -41,16 +41,27 @@
       </label>
       <div class="relative">
         <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category_id" name="category_id" value="{{ old('category_id') }}">
-          @foreach($categories as $category)
-          <option value="{{ $category->id }}">{{ $category->name_category }}</option>
-          @endforeach
+            <option disabled selected>Seleccionar</option>
+              @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+              @endforeach
         </select>
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user_id">
+          Usuario
+        </label>
+        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="user_id" name="user_id" value="{{ old('user_id') }}">
+          <option disabled selected>Seleccionar</option>
+              @foreach($users as $user)
+          <option value="{{ $user->id }}">{{ $user->name }}</option>
+              @endforeach
+        </select>
+
         <button class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4">
-  Crear Post
-  </button>
-      </div>
+          Crear Post
+        </button>
+      </div>  
     </div>
-  </div>
 </form>
 
 </x-posts>

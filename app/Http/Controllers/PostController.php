@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at' , 'desc')->get();
         return view('posts.index' , [
             'posts' => $posts
         ]);
@@ -29,9 +30,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        $users = User::all();
         $categories = Category::all();
         return view('posts.create' , [
-            'categories' => $categories
+            'categories' => $categories,
+            'users' => $users
         ]);
     }
 
@@ -50,8 +53,10 @@ class PostController extends Controller
             'category_id' => 'required'
         ]);
         $input = $request->all();
+        $input['user_id'] = $request->has('user_id') ?? $request->user()->id;
         Post::create($input);
         return redirect('posts');
+        //$input['user_id']; //$request->user()->id; or Auth::user() if the request is not accessible (just one user)
     }
 
     /**

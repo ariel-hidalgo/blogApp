@@ -36,19 +36,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::resource('blogs' , BlogController::class);
-
-Route::get('/music' , function (){
-    return view('blogs.music');
-});
-
-Route::get('/films' , function (){
-    return view('blogs.films');
-});
-
-Route::get('/series' , function (){
-    return view('blogs.series');
-});
-
-Route::get('/anime' , function (){
-    return view('blogs.anime');
-});
