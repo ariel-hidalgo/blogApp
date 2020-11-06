@@ -16,7 +16,15 @@ class UserSeeder extends Seeder
         \App\Models\User::create([
             'name' => 'Test',
             'email' => 'test@test.com',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
+            'role' => 'user'
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'Manager',
+            'email' => 'manager@manager.com',
+            'password' => bcrypt('12345678'),
+            'role' => 'manager'
         ]);
     }
 }

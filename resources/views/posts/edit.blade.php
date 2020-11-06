@@ -2,6 +2,13 @@
 <h1 class="text-center mb-4 text-2xl font-semibold">Editar Post</h1>
 
 <form method="POST" action="{{ route('posts.update' , $post->id )}}" class="w-full max-w-lg text-center ml-auto mr-auto border-black border-2 p-4 rounded">
+
+@if (session('success'))
+<div role="alert">
+  <p class="font-bold blue">{{ session('success') }}</p>
+</div>
+@endif
+
   @csrf
   @method('PUT')
   <div class="flex flex-wrap -mx-3 mb-6">
@@ -46,6 +53,18 @@
           <option value="{{ $category->id }}">{{ $category->name_category }}</option>
         @endforeach
         </select>
+
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user_id">
+          Usuario
+        </label>
+        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="user_id" name="user_id" value="{{ old('user_id') }}">
+              @foreach($users as $user)
+          <option value="{{ $user->id }}">{{ $user->name }}</option>
+              @endforeach
+        </select>
+
+
         <button type="submit" class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4">
   Editar Post
   </button>

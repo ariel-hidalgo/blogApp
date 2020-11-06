@@ -78,10 +78,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update' , $post);
+        $users = User::all();
         $categories = Category::all();
         return view('posts.edit', [
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
+            'users' => $users
         ]);
     }
 
@@ -94,9 +97,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update' , $post);
         $input = $request->all();
         $post->update($input);
-        return redirect('posts');
+        return back()->with('success' , 'Post Actualizado!');
     }
 
     /**
