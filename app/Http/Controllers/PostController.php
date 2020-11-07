@@ -30,6 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        $this->authorize('create' , Post::class);
         $users = User::all();
         $categories = Category::all();
         return view('posts.create' , [
@@ -46,14 +47,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create' , Post::class);
+        $input = $request->all();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'user_id' => ['required', 'exists:App\Models\User,id']
         ]);
-        $input = $request->all();
-        $input['user_id'] = $request->has('user_id') ?? $request->user()->id;
         Post::create($input);
         return redirect('posts');
         //$input['user_id']; //$request->user()->id; or Auth::user() if the request is not accessible (just one user)

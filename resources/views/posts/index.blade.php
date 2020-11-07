@@ -9,12 +9,14 @@
                     <th class="text-center p-3 px-5">Descripcion</th>
                     <th class="text-center p-3 px-5">Fecha</th>
                     <th class="text-center p-3 px-5">Categoría</th>
-                    <th class="text-right p-3 px-5">
-                    <a href="{{ route('posts.create') }}"><button type="button" class="bg-gray-700 hover:bg-black text-white font-bold py-2 px-4 border rounded">
-                    Crear Nuevo Post
-                    </button>
-                    </a>
-                    </th>
+                    @can('create' , \App\Models\Post::class)
+                        <th class="text-right p-3 px-5">
+                        <a href="{{ route('posts.create') }}"><button type="button" class="bg-gray-700 hover:bg-black text-white font-bold py-2 px-4 border rounded">
+                        Crear Nuevo Post
+                        </button>
+                        </a>
+                        </th>
+                    @endcan
                 </tr>
                 @foreach ($posts as $post)
                 <tr class="border-b hover:bg-orange-100 bg-gray-100">
@@ -29,8 +31,9 @@
                     <td class="p-3 text-center px-5">{{ Str::limit($post->date , 15) }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit ($post->category->name_category , 15) }}</td>
                     <td class="p-3 text-center px-5 flex justify-end">
+                    @can('update' , $post)
                     <a href="{{ route('posts.edit' , $post->id)}}"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Editar</button></a>
-
+                    @endcan
                     <form action="{{ route('posts.destroy', $post)}}" method="post">
                     {{ method_field('DELETE') }}
                     @csrf
