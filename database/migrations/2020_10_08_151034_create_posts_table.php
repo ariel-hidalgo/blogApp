@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('date');
             $table->timestamps();
             $table->foreignId('category_id')
                   ->references('id')->on('categories')

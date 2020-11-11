@@ -52,7 +52,6 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'date' => 'required',
             'category_id' => 'required',
             'user_id' => ['required', 'exists:App\Models\User,id']
         ]);
@@ -104,7 +103,6 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'date' => 'required',
             'category_id' => 'required',
             'user_id' => ['required', 'exists:App\Models\User,id']
         ]);
