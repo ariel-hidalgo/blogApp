@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at' , 'desc')->get();
         return view('posts.index' , [
             'posts' => $posts
         ]);
@@ -29,9 +30,12 @@ class PostController extends Controller
      */
     public function create()
     {
+        $this->authorize('create' , Post::class);
+        $users = User::all();
         $categories = Category::all();
         return view('posts.create' , [
-            'categories' => $categories
+            'categories' => $categories,
+            'users' => $users
         ]);
     }
 
@@ -43,15 +47,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create' , Post::class);
+        $input = $request->all();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'date' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'user_id' => ['required', 'exists:App\Models\User,id']
         ]);
-        $input = $request->all();
         Post::create($input);
         return redirect('posts');
+        //$input['user_id']; //$request->user()->id; or Auth::user() if the request is not accessible (just one user)
     }
 
     /**
@@ -73,10 +79,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update' , $post);
+        $users = User::all();
         $categories = Category::all();
         return view('posts.edit', [
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
+            'users' => $users
         ]);
     }
 
@@ -89,9 +98,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update' , $post);
         $input = $request->all();
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'user_id' => ['required', 'exists:App\Models\User,id']
+        ]);
         $post->update($input);
-        return redirect('posts');
+        return back()->with('success' , 'Post Actualizado!');
     }
 
     /**
@@ -102,6 +118,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete' , $post);
         $post->delete();
         return redirect('posts');
     }
