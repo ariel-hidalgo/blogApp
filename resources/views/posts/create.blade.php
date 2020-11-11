@@ -40,7 +40,7 @@
         Categoría
       </label>
       <div class="relative">
-        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category_id" name="category_id" value="{{ old('category_id') }}">
+        <select class="block text-center appearance-none w-full bg-gray-400 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="category_id" name="category_id" value="{{ old('category_id') }}" required>
             <option disabled selected>Seleccionar</option>
               @foreach($categories as $category)
             <option value="{{ $category->id }}">{{ $category->name_category }}</option>

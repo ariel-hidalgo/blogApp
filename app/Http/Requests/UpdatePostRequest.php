@@ -28,7 +28,7 @@ class UpdatePostRequest extends FormRequest
             'description' => 'required',
             'date' => 'required',
             'category_id' => 'required',
-            'user_id' => ['required', 'exists:App\Models\User,id'],
+            'assigned_to' => ['exists:App\Models\User,id'],
         ];
     }
 }

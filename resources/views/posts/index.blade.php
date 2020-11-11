@@ -31,14 +31,14 @@
                     <td class="p-3 text-center px-5">{{ Str::limit($post->date , 15) }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit ($post->category->name_category , 15) }}</td>
                     <td class="p-3 text-center px-5 flex justify-end">
-                    @can('update' , $post)
+                    @can(['update' , 'delete' ], $post)
                     <a href="{{ route('posts.edit' , $post->id)}}"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Editar</button></a>
-                    @endcan
                     <form action="{{ route('posts.destroy', $post)}}" method="post">
                     {{ method_field('DELETE') }}
                     @csrf
                     <button type="submit" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Eliminar</button>
                     </form>
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>

@@ -23,13 +23,6 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'title' => $this->faker->text,
-            'description' => $this->faker->text(),
-            'date' => $this->faker->text,
-            'category_id' => Category::factory()->create(),
-            'user_id' => User::factory()->create(),
-
-        ];
+        //
     }
 }

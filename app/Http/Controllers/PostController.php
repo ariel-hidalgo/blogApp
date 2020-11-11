@@ -101,6 +101,13 @@ class PostController extends Controller
     {
         $this->authorize('update' , $post);
         $input = $request->all();
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+            'category_id' => 'required',
+            'user_id' => ['required', 'exists:App\Models\User,id']
+        ]);
         $post->update($input);
         return back()->with('success' , 'Post Actualizado!');
     }
@@ -113,6 +120,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete' , $post);
         $post->delete();
         return redirect('posts');
     }

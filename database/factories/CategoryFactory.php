@@ -24,7 +24,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name_category' => $this->faker->text
+            'name_category' => $this->faker->text,
+            'user_id' => User::factory()->create()
         ];
     }
 }

@@ -9,8 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name_category'];
+    protected $fillable = ['name_category' , 'user_id'];
     public function posts(){
         return $this->hasMany('App\Models\Post');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
     }
 }
