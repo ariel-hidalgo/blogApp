@@ -7,7 +7,7 @@
                     <th class="text-center p-3 px-5">Usuario</th>
                     <th class="text-center p-3 px-5">Titulo</th>
                     <th class="text-center p-3 px-5">Descripcion</th>
-                    <th class="text-center p-3 px-5">Fecha</th>
+                    <th class="text-center p-3 px-5">Fecha De Creación</th>
                     <th class="text-center p-3 px-5">Categoría</th>
                     @can('create' , \App\Models\Post::class)
                         <th class="text-right p-3 px-5">
@@ -28,7 +28,7 @@
                     <td class="p-3 text-center px-5">{{ $post->user->name }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit($post->title , 30) }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit($post->description , 30) }}</td>
-                    <td class="p-3 text-center px-5">{{ Str::limit($post->date , 15) }}</td>
+                    <td class="p-3 text-center px-5">{{ $post->created_at }}</td>
                     <td class="p-3 text-center px-5">{{ Str::limit ($post->category->name_category , 15) }}</td>
                     <td class="p-3 text-center px-5 flex justify-end">
                     @can(['update' , 'delete' ], $post)

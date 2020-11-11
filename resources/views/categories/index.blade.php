@@ -7,6 +7,7 @@
                     <th class="text-center p-3 px-5">Usuario</th>
                     <th class="text-center p-3">Id</th>
                     <th class="text-center p-3">Nombre Categoría</th>
+                    <th class="text-center p-3">Fecha De Creación</th>
                     @can('create' , \App\Models\Category::class)
                     <th class="text-right p-3">
                     <a href="{{ route('categories.create') }}"><button type="button" class="bg-gray-700 hover:bg-black text-white font-bold py-2 px-4 border rounded">
@@ -26,6 +27,7 @@
                     <td class="p-3 text-center">{{ $category->user->name }}</td>
                     <td class="p-3 text-center">{{ $category->id }}</td>
                     <td class="p-3 text-center">{{ Str::limit($category->name_category , 50)}}</td>
+                    <td class="p-3 text-center">{{ $category->created_at }}</td>
                     @can(['update' , 'delete'] , $category)
                     <td class="p-3 text-center flex justify-end">
                     <a href="{{ route('categories.edit' , $category->id)}}"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Editar</button></a>

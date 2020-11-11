@@ -13,15 +13,6 @@
       <p class="text-red-700 text-xs font-bold">Este campo es obligatorio!</p>
       @enderror
     </div>
-    <div class="w-full md:w-1/2 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="date">
-        Fecha
-      </label>
-      <input class="appearance-none block w-full bg-gray-400 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="date" name="date" value="{{ old('date') }}" type="text">
-      @error('date')
-      <p class="text-red-700 text-xs font-bold mt-3">Este campo es obligatorio!</p>
-      @enderror
-    </div>
   </div>
   <div class="flex flex-wrap -mx-3 mb-6">
           <div class="relative w-full appearance-none label-floating">
