@@ -23,6 +23,9 @@
             <option value="{{ $user->id }}">{{ $user->name }}</option>
             @endforeach
       </select>
+      @error('user_id')
+      <p class="text-red-700 text-xs font-bold">Este campo es obligatorio!</p>
+      @enderror
     </div>
 
 
