@@ -1,0 +1,9 @@
+GET http://localhost:8080/api/user
+Accept: application/json
+Authorization: Bearer E0aE6Jf13Xalwb9DlCMD6elu6Aoi8H0uDs8SabfM
+
+###
+
+GET http://localhost:8080/api/posts
+Accept: application/json
+Authorization: Bearer E0aE6Jf13Xalwb9DlCMD6elu6Aoi8H0uDs8SabfM

@@ -1,0 +1,60 @@
+GET http://localhost:8080/api/posts
+Accept: application/json
+Authorization: Bearer E0aE6Jf13Xalwb9DlCMD6elu6Aoi8H0uDs8SabfM
+
+<> 2020-11-14T091215.200.json
+
+###
+
+GET http://localhost:8080/api/user
+Accept: application/json
+Authorization: Bearer E0aE6Jf13Xalwb9DlCMD6elu6Aoi8H0uDs8SabfM
+
+<> 2020-11-14T091210.200.json
+
+###
+
+GET http://localhost:8080/api/user
+Accept: application/json
+Authorization: Bearer qY6gLwZUcsG6SPbz7QiHSnOcq9IhPXdaarywvm5s
+
+<> 2020-11-14T091134.401.json
+
+###
+
+GET http://localhost:8080/api/posts
+Accept: application/json
+Authorization: Bearer qY6gLwZUcsG6SPbz7QiHSnOcq9IhPXdaarywvm5s
+
+<> 2020-11-14T091053.401.json
+
+###
+
+GET http://localhost:8080/api/user
+Accept: application/json
+Authorization: Bearer qY6gLwZUcsG6SPbz7QiHSnOcq9IhPXdaarywvm5s
+
+<> 2020-11-14T053913.200.json
+
+###
+
+GET http://localhost:8080/api/user
+Accept: application/json
+
+<> 2020-11-13T123017.401.json
+
+###
+
+GET http://localhost:8080/api/user
+Accept: application/json
+
+<> 2020-11-13T122946.401.json
+
+###
+
+GET http://localhost:8080/api/user
+
+<> 2020-11-13T122816.200.html
+
+###
+
