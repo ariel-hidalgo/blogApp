@@ -23,7 +23,7 @@ class RegisterUserTest extends DuskTestCase
                     ->type('password' , '12345678')
                     ->type('password_confirmation' , '12345678')
                     ->press('REGISTER')
-                    ->assertSee('Dashboard');
+                    ->assertSee('Post');
         });
     }
 }
