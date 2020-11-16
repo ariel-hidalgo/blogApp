@@ -1,4 +1,4 @@
-name: Dusk Tests
+name: Dusk
 on:
  push:
    branches: [ master ]
