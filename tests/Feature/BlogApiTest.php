@@ -19,7 +19,7 @@ class BlogApiTest extends TestCase
 
         $post = Post::factory()->create(
             [
-                "user_id" => $user->id
+                "user_id" => (string)$user->id
             ]
         );
 
