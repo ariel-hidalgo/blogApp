@@ -14,7 +14,7 @@ class RegisterUserTest extends DuskTestCase
      *
      * @return void
      */
-    public function testCreatePost()
+    public function testRegisterUser()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
@@ -23,7 +23,7 @@ class RegisterUserTest extends DuskTestCase
                     ->type('password' , '12345678')
                     ->type('password_confirmation' , '12345678')
                     ->press('REGISTER')
-                    ->assertSee('Post');
+                    ->assertSee('Usuario');
         });
     }
 }

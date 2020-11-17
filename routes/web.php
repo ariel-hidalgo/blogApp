@@ -22,6 +22,7 @@ Route::get('/admin', function () {
 }); 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::redirect('/dashboard' , 'posts');
     Route::resource('categories' , CategoryController::class);
     Route::resource('posts' , PostController::class);
 });
