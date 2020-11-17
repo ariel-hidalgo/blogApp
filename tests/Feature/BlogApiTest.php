@@ -35,7 +35,7 @@ class BlogApiTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonCount(1);
         $response->assertJsonFragment([
-            'user_id' => $user->id
+            'user_id' => (string)$user->id
         ]);
     }
 
@@ -45,7 +45,7 @@ class BlogApiTest extends TestCase
 
         $post = Post::factory()->create(
             [
-                "user_id" => $postUser->id
+                "user_id" => (string)$postUser->id
             ]
         );
 
