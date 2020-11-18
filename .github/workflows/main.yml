@@ -15,5 +15,3 @@ jobs:
         heroku_app_name: "blog-ariel-app"
         heroku_email: "arielhidalgo808@gmail.com"
         justlogin: true
-    - name: run heroku master
-        run: git push heroku master
