@@ -14,4 +14,3 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "blog-ariel-app"
         heroku_email: "arielhidalgo808@gmail.com"
-        justlogin: true
