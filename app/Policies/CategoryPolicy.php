@@ -16,7 +16,7 @@ class CategoryPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny()
     {
         return true;
     }
@@ -28,7 +28,7 @@ class CategoryPolicy
      * @param  \App\Models\Category  $category
      * @return mixed
      */
-    public function view(User $user, Category $category)
+    public function view()
     {
         return true;
     }
@@ -75,7 +75,7 @@ class CategoryPolicy
      * @param  \App\Models\Category  $category
      * @return mixed
      */
-    public function restore(User $user, Category $category)
+    public function restore()
     {
         return true;
     }
@@ -87,7 +87,7 @@ class CategoryPolicy
      * @param  \App\Models\Category  $category
      * @return mixed
      */
-    public function forceDelete(User $user, Category $category)
+    public function forceDelete()
     {
         return true;
     }
