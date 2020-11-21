@@ -349,6 +349,7 @@ return [
         'vendor/laravel/dusk/src',
         'vendor/laravel/framework/src/Illuminate',
         'vendor/laravel/jetstream/src',
+        'vendor/laravel/fortify/src',
         'vendor/laravel/sanctum/src',
         'vendor/laravel/tinker/src',
         'vendor/livewire/livewire/src',
