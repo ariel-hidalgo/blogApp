@@ -16,7 +16,7 @@ class PostPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny()
     {
         return true;
     }
@@ -28,7 +28,7 @@ class PostPolicy
      * @param  \App\Models\Post  $post
      * @return mixed
      */
-    public function view(User $user, Post $post)
+    public function view()
     {
         return true;
     }
@@ -75,7 +75,7 @@ class PostPolicy
      * @param  \App\Models\Post  $post
      * @return mixed
      */
-    public function restore(User $user, Post $post)
+    public function restore()
     {
         return true;
     }
@@ -87,7 +87,7 @@ class PostPolicy
      * @param  \App\Models\Post  $post
      * @return mixed
      */
-    public function forceDelete(User $user, Post $post)
+    public function forceDelete()
     {
         return true;
     }

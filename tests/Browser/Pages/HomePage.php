@@ -22,7 +22,7 @@ class HomePage extends Page
      * @param  \Laravel\Dusk\Browser  $browser
      * @return void
      */
-    public function assert(Browser $browser)
+    public function assert()
     {
         //
     }
