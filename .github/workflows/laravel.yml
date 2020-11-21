@@ -30,4 +30,5 @@ jobs:
      env:
        DB_CONNECTION: sqlite
        DB_DATABASE: database/databaseTest.sqlite
-     run: vendor/bin/phpunit
+     run: vendor/bin/phpunit --coverage-clover=coverage.xml
+   - uses: codecov/codecov-action@v1
