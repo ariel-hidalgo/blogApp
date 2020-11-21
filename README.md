@@ -13,3 +13,4 @@ This is a project for the Web Programming II subject of Unicen, Argentina, Bueno
 ![Dusk Tests](https://github.com/ariel-hidalgo/blogApp/workflows/Dusk%20Tests/badge.svg)
 ![Laravel](https://github.com/ariel-hidalgo/blogApp/workflows/Laravel/badge.svg)
 ![Deploy](https://github.com/ariel-hidalgo/blogApp/workflows/Deploy/badge.svg)
+[![codecov](https://codecov.io/gh/ariel-hidalgo/blogApp/branch/master/graph/badge.svg?token=3KMOYOVYUQ)](https://codecov.io/gh/ariel-hidalgo/blogApp)
