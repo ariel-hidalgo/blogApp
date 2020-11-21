@@ -1,0 +1,15 @@
+name: Static Code Analysis
+on:
+ push:
+   branches: [ master ]
+ pull_request:
+   branches: [ master ]
+jobs:
+ code-analysis:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v2
+   - name: Install Dependencies
+     run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+   - name: Run Phar
+     run: vendor/bin/phan --no-progress-bar --allow-polyfill-parser --output-mode checkstyle | vendor/bin/cs2pr --graceful-warnings --colorize | true

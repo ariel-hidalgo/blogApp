@@ -16,7 +16,9 @@
         "laravel/jetstream": "^1.4",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "phan/phan": "^3.2",
+        "staabm/annotate-pull-request-from-checkstyle": "^1.4"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
