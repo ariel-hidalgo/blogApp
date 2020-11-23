@@ -2,7 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Models\User;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -20,7 +21,7 @@ class UserTest extends TestCase
 
     public function testUserIsNotManager()
     {
-        $user = User::factory()->create(['role' => 'manager']);
+        $user = User::factory()->create(['role' => 'user']);
         $userIsManager = $user->isManager();
         $this->assertFalse($userIsManager);
     }
