@@ -26,4 +26,11 @@ class BlogTest extends TestCase
         $post = Post::factory()->create(['user_id' => $user->id]);
         $this->assertEquals($user->id , $post->user->id);
     }
+
+    public function testPostHasCategoryAssigned()
+    {
+        $category = Category::factory()->create();
+        $post = Post::factory()->create(['category_id' => $category->id]);
+        $this->assertEquals($category->id , $post->category->id);
+    }
 }
