@@ -49,6 +49,16 @@ class PostTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function testAuthorizedUserCanDeletePost()
+    {
+        $user = User::factory()->create(['role' => 'user']);
+        $post = Post::factory()->create(['user_id' => $user->id])->toArray();
+        $response = $this->actingAs($user)->get(
+            route('posts.destroy' , $post['id'])
+        );
+        $this->assertDeleted('posts' , $post);
+    }
+
 // Manager Tests
 
     public function testManagerCanCreatePost()
