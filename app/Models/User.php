@@ -67,4 +67,8 @@ class User extends Authenticatable
     public function categories(){
         return $this->hasMany('App\Models\Category');
     }
+
+    public function isManager(){
+        return $this->role === 'manager';
+    }
 }
