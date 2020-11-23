@@ -8,7 +8,7 @@ use Tests\TestCase;
 class UserTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Testing the diferent posible roles of the User
      *
      * @return void
      */

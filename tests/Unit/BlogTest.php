@@ -9,7 +9,7 @@ use Tests\TestCase;
 class BlogTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Testing Categories, Posts and User relations 
      *
      * @return void
      */
