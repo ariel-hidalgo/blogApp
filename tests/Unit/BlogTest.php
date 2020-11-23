@@ -15,8 +15,8 @@ class BlogTest extends TestCase
      */
     public function testCategoryCreate()
     {
-        $user = User::factory()->create(['role' => 'manager']);
+        $user = User::factory()->create();
         $category = Category::factory()->create(['user_id' => $user->id]);
-        $this->assertEquals($user->id , $category->$user->id);
+        $this->assertEquals($user->id , $category->user->id);
     }
 }
