@@ -2,15 +2,11 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 use App\Models\User;
 
 class BlogTest extends TestCase
 {
-    use RefreshDatabase;
-    use WithoutMiddleware;
     /**
      * A basic test example.
      *
@@ -19,7 +15,7 @@ class BlogTest extends TestCase
     public function testGuestCanNotCreatePost()
     {
         $response = $this->get(route('posts.create'));
-        $response->assertStatus(403);
+        $response->assertStatus(302);
     }   
 
     public function testManagerCanCreatePost()
