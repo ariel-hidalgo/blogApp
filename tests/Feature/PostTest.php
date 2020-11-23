@@ -19,6 +19,17 @@ class PostTest extends TestCase
         $response->assertStatus(302);
     }   
 
+// User Tests
+
+    public function testUserCanViewAllPosts()
+{
+        $user = User::factory()->create(['role' => 'user']);
+        $response = $this->actingAs($user)->get(
+            route('posts.index')
+        );
+        $response->assertStatus(200);
+}
+
     public function testUserCanNotCreatePost()
     {
         $user = User::factory()->create(['role' => 'user']);
@@ -27,6 +38,8 @@ class PostTest extends TestCase
         );
         $response->assertStatus(403);
     }
+
+// Manager Tests
 
     public function testManagerCanCreatePost()
     {
