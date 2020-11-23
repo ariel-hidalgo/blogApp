@@ -39,6 +39,16 @@ class PostTest extends TestCase
         $response->assertStatus(403);
     }
 
+    public function testAuthorizedUserCanEditPost()
+    {
+        $user = User::factory()->create(['role' => 'user']);
+        $post = Post::factory()->create(['user_id' => $user->id]);
+        $response = $this->actingAs($user)->get(
+            'posts/' . $post->id . '/edit'
+        );
+        $response->assertStatus(200);
+    }
+
 // Manager Tests
 
     public function testManagerCanCreatePost()
@@ -59,5 +69,6 @@ class PostTest extends TestCase
             route('posts.store') , $post
         );
         $response->assertRedirect();
+        $this->assertDatabaseHas('posts' , $post);
     } 
 }
