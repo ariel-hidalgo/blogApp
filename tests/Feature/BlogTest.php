@@ -18,6 +18,15 @@ class BlogTest extends TestCase
         $response->assertStatus(302);
     }   
 
+    public function testUserCanNotCreatePost()
+    {
+        $user = User::factory()->create(['role' => 'user']);
+        $response = $this->actingAs($user)->get(
+            route('posts.create')
+        );
+        $response->assertStatus(403);
+    }
+
     public function testManagerCanCreatePost()
     {
         $user = User::factory()->create(['role' => 'manager']);
