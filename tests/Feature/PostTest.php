@@ -8,11 +8,7 @@ use App\Models\Post;
 
 class PostTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+
     public function testGuestCanNotCreatePost()
     {
         $response = $this->get(route('posts.create'));
@@ -53,7 +49,7 @@ class PostTest extends TestCase
     {
         $user = User::factory()->create(['role' => 'user']);
         $post = Post::factory()->create(['user_id' => $user->id])->toArray();
-        $response = $this->actingAs($user)->get(
+        $this->actingAs($user)->get(
             route('posts.destroy' , $post['id'])
         );
         $this->assertDeleted('posts' , $post);
@@ -63,8 +59,8 @@ class PostTest extends TestCase
 
     public function testManagerCanCreatePost()
     {
-        $user = User::factory()->create(['role' => 'manager']);
-        $response = $this->actingAs($user)->get(
+        $manager = User::factory()->create(['role' => 'manager']);
+        $response = $this->actingAs($manager)->get(
             route('posts.create')
         );
         $response->assertStatus(200);
@@ -73,12 +69,12 @@ class PostTest extends TestCase
     public function testManagerCanStorePost()
     {
         $manager = User::factory()->create(['role' => 'manager']);
-        $user = User::factory()->create(['role' => 'user']);
-        $post = Post::factory()->make(['user_id' => $user->id])->toArray();
+        $post = Post::factory()->make(['user_id' => $manager->id])->toArray();
         $response = $this->actingAs($manager)->post(
             route('posts.store') , $post
         );
         $response->assertRedirect();
         $this->assertDatabaseHas('posts' , $post);
     } 
+
 }
