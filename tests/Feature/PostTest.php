@@ -15,7 +15,6 @@ class PostTest extends TestCase
         $response->assertStatus(302);
     }   
 
-// User Tests
 
     public function testUserCanViewAllPosts()
 {
@@ -54,8 +53,6 @@ class PostTest extends TestCase
         );
         $this->assertDeleted('posts' , $post);
     }
-
-// Manager Tests
 
     public function testManagerCanCreatePost()
     {

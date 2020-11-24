@@ -15,8 +15,6 @@ class CategoryTest extends TestCase
         $response->assertStatus(302);
     }   
 
-// User Tests
-
     public function testUserCanViewAllCategories()
 {
         $user = User::factory()->create(['role' => 'user']);
@@ -54,8 +52,6 @@ class CategoryTest extends TestCase
         );
         $this->assertDeleted('categories' , $category);
     }
-
-// Manager Tests
 
     public function testManagerCanCreateCategory()
     {

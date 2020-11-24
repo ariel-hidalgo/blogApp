@@ -9,11 +9,6 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    /**
-     * Testing the diferent posible roles of the User
-     *
-     * @return void
-     */
     public function testUserIsManager()
     {
         $user = User::factory()->create(['role' => 'manager']);
@@ -41,6 +36,5 @@ class UserTest extends TestCase
         $post = Post::factory()->create(['user_id' => $user->id]);
         $this->assertEquals($user->id , $post->user->id);
     }
-
 
 }

@@ -13,6 +13,8 @@ class BlogTest extends TestCase
      *
      * @return void
      */
+
+    // Categories
     public function testCategoryHasUserAssigned()
     {
         $user = User::factory()->create();
@@ -20,6 +22,7 @@ class BlogTest extends TestCase
         $this->assertEquals($user->id , $category->user->id);
     }
 
+    // Posts
     public function testPostHasUserAssigned()
     {
         $user = User::factory()->create();
@@ -33,4 +36,5 @@ class BlogTest extends TestCase
         $post = Post::factory()->create(['category_id' => $category->id]);
         $this->assertEquals($category->id , $post->category->id);
     }
+
 }

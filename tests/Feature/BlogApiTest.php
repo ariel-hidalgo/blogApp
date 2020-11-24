@@ -12,7 +12,6 @@ use Tests\TestCase;
 class BlogApiTest extends TestCase
 {
 
-    //test sobre la api
     public function test_user_can_read_assigned_posts()
     {
         $user = User::factory()->create();

@@ -1,0 +1,19 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
+use Tests\TestCase;
+
+class CategoryTest extends TestCase
+{
+    public function testCategoryHasPostAssigned()
+    {
+        $category = Category::factory()->create();
+        $post = Post::factory()->create(['category_id' => $category->id]);
+        $this->assertEquals($category->id , $post->category->id);
+    }
+
+}

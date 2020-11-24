@@ -9,15 +9,10 @@ use Tests\DuskTestCase;
 
 class LoginTest extends DuskTestCase
 {
-    /**
-     * Verifica Si Un Usuario Puede Logearse
-     *
-     * @return void
-     */
     public function testLogin()
     {
         $user = User::factory()->create([
-            'email' =>'test8874@test.com',
+            'email' =>'random@random.com',
             'password' => bcrypt('123456789')
         ]);
 

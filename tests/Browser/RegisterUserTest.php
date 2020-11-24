@@ -9,17 +9,12 @@ use Tests\DuskTestCase;
 
 class RegisterUserTest extends DuskTestCase
 {
-    /**
-     * Verifica que el usuario pueda registrarse correctamente
-     *
-     * @return void
-     */
     public function testRegisterUser()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
-                    ->type('name' , 'Ariel Hidalgo')
-                    ->type('email' , 'ariel@ariel.com')
+                    ->type('name' , 'Browser Test')
+                    ->type('email' , 'brow@test.com')
                     ->type('password' , '12345678')
                     ->type('password_confirmation' , '12345678')
                     ->press('REGISTER')
