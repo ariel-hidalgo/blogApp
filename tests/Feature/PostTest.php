@@ -88,4 +88,13 @@ class PostTest extends TestCase
         $response->assertDontSee('prueba');
     }
 
+    public function testPostUpdate()
+    {
+        $category = Category::factory()->create();
+        $user = User::factory()->create(['role' => 'manager']);
+        $post = Post::factory()->create(['user_id' => $user->id ]);
+        $response = $this->actingAs($user)->get(route('posts.update' , $post->id));
+        $response->assertSuccessful();
+    }
+
 }
