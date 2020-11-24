@@ -23,6 +23,6 @@ class posts extends Component
      */
     public function render()
     {
-       // return view('components.posts');
+        return view('components.posts');
     }
 }
