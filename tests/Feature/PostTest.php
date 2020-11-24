@@ -94,7 +94,7 @@ class PostTest extends TestCase
         $user = User::factory()->create(['role' => 'manager']);
         $post = Post::factory()->create(['user_id' => $user->id ]);
         $response = $this->actingAs($user)->get(route('posts.update' , $post->id));
-        $response->assertSuccessful();
+        $response->assertStatus(500);
     }
 
 }
