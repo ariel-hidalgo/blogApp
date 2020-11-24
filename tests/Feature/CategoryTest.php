@@ -73,4 +73,15 @@ class CategoryTest extends TestCase
         $this->assertDatabaseHas('categories' , $category);
     } 
 
+    public function testCategoryDestroy()
+    {
+        $user = User::factory()->create(['role' => 'user']);
+        $category = Category::factory()->create([
+            'name_category' => 'prueba',
+            'user_id' => $user->id
+            ]);
+        $response = $this->actingAs($user)->delete('categories/' . $category->id);
+        $response->assertDontSee('prueba');
+    }
+
 }
