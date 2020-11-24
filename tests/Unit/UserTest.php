@@ -37,4 +37,18 @@ class UserTest extends TestCase
         $this->assertEquals($user->id , $post->user->id);
     }
 
+    public function testUserCanHaveManyCategories()
+    {
+        $user = User::factory()->has(Category::factory()->count(3))->create();
+        $categories = $user->categories()->get();
+        $this->assertNotEmpty($categories);
+    }
+
+    public function testUserCanHaveManyPosts()
+    {
+        $user = User::factory()->has(Post::factory()->count(3))->create();
+        $posts = $user->posts()->get();
+        $this->assertNotEmpty($posts);
+    }
+
 }

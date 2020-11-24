@@ -23,4 +23,11 @@ class CategoryTest extends TestCase
         $this->assertEquals($creator->id , $category->user_id);
     }
 
+    public function testCategoryCanHaveManyPosts()
+    {
+        $category = Category::factory()->has(Post::factory()->count(3))->create();
+        $posts = $category->posts()->get();
+        $this->assertNotEmpty($posts);
+    }
+
 }
