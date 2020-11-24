@@ -10,16 +10,6 @@ class CategoryPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user)
-    {
-        return true;
-    }
-
-    public function view(User $user, Category $category)
-    {
-        return true;
-    }
-
     public function create(User $user)
     {
         return $user->role === 'manager';

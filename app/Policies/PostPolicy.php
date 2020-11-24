@@ -10,16 +10,6 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user)
-    {
-        return true;
-    }
-
-    public function view(User $user, Post $post)
-    {
-        return true;
-    }
-
     public function create(User $user)
     {
         return $user->role === 'manager';
@@ -34,5 +24,4 @@ class PostPolicy
     {
         return $user->id === $post->user->id;
     }
-
 }
