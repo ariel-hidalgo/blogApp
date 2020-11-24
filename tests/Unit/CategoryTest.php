@@ -16,4 +16,11 @@ class CategoryTest extends TestCase
         $this->assertEquals($category->id , $post->category->id);
     }
 
+    public function testCategoryHasCreatorAssigned()
+    {
+        $creator = User::factory()->create();
+        $category = Category::factory()->create(['user_id' => $creator->id]);
+        $this->assertEquals($creator->id , $category->user_id);
+    }
+
 }
