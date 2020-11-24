@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostTest extends TestCase
 {
@@ -72,6 +73,19 @@ class PostTest extends TestCase
         );
         $response->assertRedirect();
         $this->assertDatabaseHas('posts' , $post);
-    } 
+    }
+
+    public function testPostDestroy()
+    {
+        $user = User::factory()->create(['role' => 'user']);
+        $category = Category::factory()->create();
+        $post = Post::factory()->create([
+            'title' => 'prueba',
+            'category_id' => $category->id,
+            'user_id' => $user->id
+            ]);
+        $response = $this->actingAs($user)->delete('posts/' . $category->id);
+        $response->assertDontSee('prueba');
+    }
 
 }
