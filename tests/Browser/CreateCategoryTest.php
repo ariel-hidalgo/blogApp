@@ -11,13 +11,14 @@ use Tests\DuskTestCase;
 
 class CreateCategoryTest extends DuskTestCase
 {
-    public function testCreateNewCategory()
+    public function testCreateCategory()
     {
         $user = User::factory()->create([
-            'email' => 'lolo@lolo.com',
+            'email' => 'lolololo@lolololo.com',
             'password' => bcrypt('olakeace'),
             'role' => 'manager'
             ]);
+        
 
         $this->browse(function (Browser $browser) use($user) {
             $browser->visit('/login')

@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\category;
+use App\Models\Category; 
 
 class CategoryTest extends TestCase
 {
