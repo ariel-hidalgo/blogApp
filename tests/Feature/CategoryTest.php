@@ -9,6 +9,21 @@ use App\Models\Category;
 class CategoryTest extends TestCase
 {
 
+    public function testCategoryUpdate()
+    {
+        $user = User::factory()->create();
+        $category = Category::factory()->create(['user_id' => $user->id]);
+        $response = $this->actingAs($user)->put(
+            'categories/' . $category->id,
+            [
+                'name_category' => 'Probando El Update',
+                'user_id' => $user->id 
+            ]
+        );
+        $category = Category::first();
+        $this->assertEquals($category->name_category, 'Probando El Update');
+    }
+
     public function testGuestCanNotCreateCategory()
     {
         $response = $this->get(route('categories.create'));

@@ -51,4 +51,5 @@ class UserTest extends TestCase
         $this->assertNotEmpty($posts);
     }
 
+
 }
