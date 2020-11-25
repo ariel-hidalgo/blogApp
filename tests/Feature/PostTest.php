@@ -7,26 +7,8 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Category;
 
-class APostTest extends TestCase
+class PostTest extends TestCase
 {
-
-    public function testPostUpdate()
-    {
-        $category = Category::factory()->create();
-        $user = User::factory()->create();
-        $post = Post::factory()->create(['user_id' => $user->id]);
-        $response = $this->actingAs($user)->put(
-            'posts/' . $post->id,
-            [
-                'title' => 'Probando El Update',
-                'description' => 'Probando El Update Otra Vez',
-                'category_id' => $category->id,
-                'user_id' => $user->id 
-            ]
-        );
-        $post = Post::first();
-        $this->assertEquals($post->description, 'Probando El Update Otra Vez');
-    }
 
     public function testGuestCanNotCreatePost()
     {
