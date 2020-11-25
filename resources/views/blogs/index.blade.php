@@ -1,6 +1,6 @@
 <x-blogs>
 <h1 class="text-4xl font-bold text-white text-center mt-8">BLOGZ</h1>
-<p class="text-center font-semibold text-white text-xl mb-16">Bienvenido a blogz! Desliza para ver nuestros últimos posts o busca por los temas que más te interesen</p>
+<p class="text-center font-semibold text-white text-xl mb-16">Bienvenido a blogz! Desliza para ver nuestros últimos posts o busca por los temas que te interesen</p>
 @foreach($posts as $post)
 <div class="ml-auto mr-auto bg-gray-700 h-screen flex items-center justify-center px-32 -mt-32">
   <div class="flex flex-col w-full bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5">
