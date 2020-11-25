@@ -10,6 +10,8 @@
 ## About The Project
 This is a project for the Web Programming II subject of Unicen, Argentina, Buenos Aires, Tandil
 
+App Deployed In Heroku: http://blog-ariel-app.herokuapp.com/
+
 ![Dusk Tests](https://github.com/ariel-hidalgo/blogApp/workflows/Dusk%20Tests/badge.svg)
 ![Laravel](https://github.com/ariel-hidalgo/blogApp/workflows/Laravel/badge.svg)
 ![Deploy](https://github.com/ariel-hidalgo/blogApp/workflows/Deploy/badge.svg)
