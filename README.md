@@ -1,3 +1,5 @@
+This project was a practice project for the Web Programming II subject of TUPAR, Exact Sciences Faculty, Unicen, Tandil
+There´s currently a more advanced project in development here: https://github.com/ariel-hidalgo/blogz4everyone
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
